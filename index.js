@@ -18,7 +18,11 @@ const content = fs.readFileSync(path.join(
 function lol(content){
   let arrayPower = []
   let arrayHealth = []
+  let object = {}
+  let step5Object = {}
+  let resulttest5
 const splitContent = content.trim().split('\r\n').slice(1)
+console.log(`Количество существ ${splitContent.length}`)
 splitContent.map((elen)=>{
   elen = elen.split('|')
   arrayPower.push(elen[2])
@@ -38,8 +42,15 @@ splitContent.map((elen)=>{
 })
 splitContent.map((elen)=>{
   elen = elen.split('|')
+  object[elen[1]] = elen[7] / elen[2]
 })
+let res = Object.entries(object).sort((a,b)=>a[1] - b[1])
+console.log(`Cамый выгодный юнит${res[0][0]}`,`\nCамый невыгодный юнит${res[res.length - 1][0]}`)
+splitContent.map((elen)=>{
+  elen = elen.split('|')
+  step5Object[elen[1]] =(Math.floor(10000 / elen[7])*elen[2])
+  resulttest5 = Object.entries(step5Object).sort((a,b)=>a[1]-b[1])
+})
+console.log(`Cамая сильная армия из${resulttest5[resulttest5.length -1][0]}c силой = ${resulttest5[resulttest5.length -1][1]}`)
 }
 (lol(content))
-// END
-  // console.log(splitContent.length)
