@@ -17,4 +17,8 @@ const content = fs.readFileSync(path.join(
 
 // BEGIN
 solution(content)
+const monstr = content.split('\n');
+const yyy = monstr.slice(1, monstr.length);
+console.log(`Всего монстров: ${yyy.length}`)
+
 // END
