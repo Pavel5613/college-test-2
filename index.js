@@ -49,7 +49,7 @@ console.log(`Cамый выгодный юнит${res[0][0]}`,`\nCамый не�
 splitContent.map((elen)=>{
   elen = elen.split('|')
   step5Object[elen[1]] =(Math.floor(10000 / elen[7])*elen[2])
-  resulttest5 = Object.entries(step5Object).sort((a,b)=>a[1]-b[1])
+  resulttest5 = Object.entries(step5Object).sort((a,b)=>a[1]-b[1]);
 })
 console.log(`Cамая сильная армия из${resulttest5[resulttest5.length -1][0]}c силой = ${resulttest5[resulttest5.length -1][1]}`)
 }
